@@ -51,3 +51,24 @@ public class AlgorithmAnalyzer {
     }
 
 }
+// ================= BINARY SEARCH =================
+    static void testBinarySearch(int[] sizes) {
+        Random rand = new Random();
+
+        System.out.println("Algorithm: Binary Search");
+        System.out.println("Input Size | Time (ms)");
+        System.out.println("----------------------");
+
+        for (int n : sizes) {
+            int[] arr = createArray(n, rand);
+            Arrays.sort(arr);
+            int key = arr[n - 1];
+
+            long start = System.nanoTime();
+            Arrays.binarySearch(arr, key);
+            long end = System.nanoTime();
+
+            double timeMs = (end - start) / 1e6;
+            System.out.printf("%-11d| %.4f%n", n, timeMs);
+        }
+    }
