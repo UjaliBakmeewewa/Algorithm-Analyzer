@@ -1,3 +1,5 @@
+//======Ujali=========
+
 import java.util.*;
 
 public class AlgorithmAnalyzer {
@@ -50,8 +52,7 @@ public class AlgorithmAnalyzer {
         return -1;
     }
 
-}
-// ================= BINARY SEARCH =================
+// ================= BINARY SEARCH ================= Ruwanthika
     static void testBinarySearch(int[] sizes) {
         Random rand = new Random();
 
@@ -70,6 +71,39 @@ public class AlgorithmAnalyzer {
 
             double timeMs = (end - start) / 1e6;
             System.out.printf("%-11d| %.4f%n", n, timeMs);
+        }
+    }
+
+// ================= BUBBLE SORT ================= Sithara
+    static void testBubbleSort(int[] sizes) {
+        Random rand = new Random();
+
+        System.out.println("Algorithm: Bubble Sort");
+        System.out.println("Input Size | Time (ms)");
+        System.out.println("----------------------");
+
+        for (int n : sizes) {
+            int[] arr = createArray(n, rand);
+
+            long start = System.nanoTime();
+            bubbleSort(arr);
+            long end = System.nanoTime();
+
+            double timeMs = (end - start) / 1e6;
+            System.out.printf("%-11d| %.4f%n", n, timeMs);
+        }
+    }
+
+    static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
         }
     }
 
@@ -122,13 +156,5 @@ public class AlgorithmAnalyzer {
         return i + 1;
     }
 
-    // ================= UTILITY =================
-    static int[] createArray(int n, Random rand) {
-        int[] arr = new int[n];
-        for (int i = 0; i < n; i++) {
-            arr[i] = rand.nextInt(1000);
-        }
-        return arr;
-    }
 
 }
