@@ -12,6 +12,15 @@ public class AlgorithmAnalyzer {
         testLinearSearch(sizes);
         System.out.println();
 
+        testBinarySearch(sizes);
+        System.out.println();
+
+        testBubbleSort(sizes);
+        System.out.println();
+
+        testQuickSort(sizes);
+        System.out.println();
+
 
     }
 
